@@ -1,0 +1,24 @@
+.home-container{
+display: flex;
+flex-direction: column;
+}
+.upper-container{
+    display: flex;
+    flex-direction: column;
+    background-image: url('../assets/images/cover.png');
+    background-size: cover;
+    height: 800px;
+    width: 100%;
+}
+.upper-main-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.nurse-photo-container{
+    background-image: url('../assets/images/doctor.png');
+    background-size: cover;
+    height: 750px;
+    width: 750px;
+    margin-top: 5px;
+}
