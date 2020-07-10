@@ -22,3 +22,45 @@ flex-direction: column;
     width: 750px;
     margin-top: 5px;
 }
+.logo-container{
+    display: flex;
+    flex-direction: column;
+    font-size: 23px;
+    color: #3A67FB;
+    
+}
+
+.nav-bar-container{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+.search-section-container{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+    margin-top: 10%;
+    
+    
+}
+.search-section-title{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+    font-weight: bold;
+    font-size: 42px;
+    color: #3660FB;
+}
+.search-section-main{
+    display: flex;
+    flex-direction: column;
+}
+.search-main-section-title{
+    margin-bottom: 15px;
+    color: #737793;
+    font-size: 23px;
+}
+.input-field-container{
+    display: flex;
+    flex-direction: row;
+}

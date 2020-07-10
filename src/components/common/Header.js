@@ -41,29 +41,29 @@ setnavDrawer(!navDrawer);
           </ul>
         </div>
       </div>
-      {navDrawer ? (
+      {navDrawer ? ( 
         <div className='mobile-nav'>
           <div className='nav-menu'>
             <ul>
-              <li>
-                <Link to='/'>Home</Link>
-              </li>
-              <li>
-                <Link to='/about'>About us</Link>
-              </li>
-              <li>
-                <Link to='/events'>Events</Link>
-              </li>
-              <li>
-                <Link to='/contact'>Contact</Link>
-              </li>
-              <li className='important-txt'>
-                <Link to='/membership/apply'>Be one of us</Link>
-              </li>
-              <li className='important-txt'>
-                <Link to='/sponsorship/apply'>Become a sponsor</Link>
-              </li>
-            </ul>
+            <li>
+              <Link to='/'>Home</Link>
+            </li>
+            <li>
+              <Link to='/order'>Order nurse</Link>
+            </li>
+            <li>
+              <Link to='/contact'>Contact us</Link>
+            </li>
+            <li>
+              <Link to='/service'>Our services</Link>
+            </li>
+            <li>
+              <Link to='/join'>Join our team</Link>
+            </li>
+            <li>
+              <Link to='/agent'>Be our agent</Link>
+            </li>
+            </ul> 
           </div>
         </div>
       ) : (
