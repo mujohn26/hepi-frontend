@@ -1,4 +1,3 @@
-// @import '../../../node_modules/react-toastify/scss/main.scss';
 
 $dark-color: #343434;
 $blue-color: #4182ff;
@@ -32,6 +31,7 @@ $gray-color: #a0a0a0;
         padding: 10px;
         margin: 0px;
         text-align: left;
+        position: fixed;
       }
 
       li {
@@ -48,19 +48,12 @@ $gray-color: #a0a0a0;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+
     @media screen and (max-width: 600px) {
       justify-content: flex-start;
       height: 50px;
     }
     .nav-logo {
-      // padding-top: 15px;
-      // color: $orange-color;
-      // font-weight: bolder;
-      //       a {
-      //   color: $orange-color;
-      //   font-weight: bolder;
-      //    text-decoration: none;
-      // }
       @media screen and (max-width: 600px) {
         padding-top: 1px;
         margin: auto;
@@ -91,8 +84,8 @@ $gray-color: #a0a0a0;
         display: inline;
         padding: 0 30px;
         a {
-          text-decoration: none;
           color: #737793;
+          text-decoration: none;
           font-size: 23px;
     :hover{
         color: #3660FB;
@@ -115,5 +108,16 @@ $gray-color: #a0a0a0;
   a{
 
   margin: 10px;
+  }
+}
+
+.nav__submenu {
+  display: none;
+}
+
+.nav__menu-item:hover {
+  .nav__submenu {
+    display: flex;
+    flex-direction: column;
   }
 }
