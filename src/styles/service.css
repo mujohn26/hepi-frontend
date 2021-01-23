@@ -1,0 +1,45 @@
+.service-page{
+    display: flex;
+    flex-direction: column;
+    background-image: url("../assets/images/cover.png");
+    background-size: cover;
+
+}
+.service-page-title{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 30px;
+    color: #737793;
+}
+.join-staff-page{
+    display: flex;
+    flex-direction: column;
+    background-image: url("../assets/images/cover.png");
+    background-size: cover;
+}
+.staff-registration-form{
+    margin-left: 35%;
+}
+
+.chip-container{
+    width:430px;
+}
+.checkbox-container{
+    display: flex;
+    flex-direction: row;
+}
+.terms{
+    margin-top: 1%;
+    color: #737793;
+    font-size: 18px;
+}
+.address-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.agent-login-link:hover{
+    font-style: normal;
+    color: "#737793";
+}

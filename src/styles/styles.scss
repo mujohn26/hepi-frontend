@@ -1,0 +1,123 @@
+
+$dark-color: #343434;
+$blue-color: #4182ff;
+$orange-color: #e68b4c;
+$white-color: #ffffff;
+$gray-color: #a0a0a0;
+  .header-txt {
+    padding-top: 10px;
+  }
+  .sub-header {
+    color: $orange-color;
+  }
+  .mobile-nav {
+    background-color: $dark-color;
+    .nav-logo {
+      padding-top: 15px;
+      color: $orange-color;
+      font-weight: bolder;
+      text-align: center;
+      a {
+        color: $orange-color;
+        font-weight: bolder;
+        text-align: center;
+        text-decoration: none;
+        
+      }
+    }
+    .nav-menu {
+      ul {
+        list-style-type: none;
+        padding: 10px;
+        margin: 0px;
+        text-align: left;
+        position: fixed;
+      }
+
+      li {
+        padding: 10px 0px;
+        a {
+          text-decoration: none;
+          color: white;
+          
+        }
+      }
+    }
+  }
+  .header-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    @media screen and (max-width: 600px) {
+      justify-content: flex-start;
+      height: 50px;
+    }
+    .nav-logo {
+      @media screen and (max-width: 600px) {
+        padding-top: 1px;
+        margin: auto;
+        font-size: 25px;
+      }
+    }
+    .nav-drawer-icon {
+      display: none;
+      color: $orange-color;
+      font-weight: bolder;
+      text-align: left;
+      font-size: 28px;
+      margin-left: 10px;
+      padding-top: 5px;
+      @media screen and (max-width: 600px) {
+        display: block;
+      }
+    }
+    .nav-menu {
+      @media screen and (max-width: 600px) {
+        display: none;
+      }
+      ul {
+        list-style-type: none;
+      }
+
+      li {
+        display: inline;
+        padding: 0 30px;
+        a {
+          color: #737793;
+          text-decoration: none;
+          font-size: 23px;
+    :hover{
+        color: #3660FB;
+    }
+        }
+        
+      }
+    }
+  }
+
+
+.important-txt {
+  color: $orange-color !important;
+  a {
+    color: $orange-color !important;
+  }
+}
+.link{
+  color: inherit;
+  a{
+
+  margin: 10px;
+  }
+}
+
+.nav__submenu {
+  display: none;
+}
+
+.nav__menu-item:hover {
+  .nav__submenu {
+    display: flex;
+    flex-direction: column;
+  }
+}

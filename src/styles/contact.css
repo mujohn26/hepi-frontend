@@ -1,0 +1,23 @@
+.contact-us-page{
+    display: flex;
+    flex-direction: column;
+    background-image: url("../assets/images/cover.png");
+    background-size: cover;
+
+}
+.contact-us-page-title{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 30px;
+    color: #737793;
+}
+.contact-us-form{
+    margin-left: 35%;
+}
+.contact-us-form-title{
+   margin-left:15%;
+   font-size: 20px;
+   color: #737793;
+
+}

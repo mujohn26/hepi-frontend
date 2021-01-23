@@ -1,0 +1,46 @@
+.booking-page{
+    display: flex;
+    flex-direction: column;
+    background-image: url("../assets/images/cover.png");
+    background-size: cover;
+
+}
+.booking-page-title{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 30px;
+    color: #737793;
+}
+
+.booking-success-page{
+    width: 600px;
+    height: 300px;
+    background-color: #3f77fa;
+    margin-left: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15%;
+    color: white;
+
+}
+
+.booking-success-page-title{
+    margin-bottom: 15px;
+    margin-top: 15px;
+    font-size: 40px;
+}
+.booking-success-page-message{
+    font-size: 20px;
+}
+.booking-success-page-link{
+    text-decoration: underline;
+    color: white;
+    margin-left: 10px;
+}
+.booking-success-page-link:hover{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}

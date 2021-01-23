@@ -1,0 +1,252 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+}
+.upper-container {
+  display: flex;
+  flex-direction: column;
+  background-image: url("../assets/images/cover.png");
+  background-size: cover;
+  height: 790px;
+  width: 100%;
+}
+.upper-main-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: -6%;
+}
+.nurse-photo{
+  height: 740px;
+  width: 740px;
+  margin-top:10px;
+ 
+}
+.logo-container {
+  margin-top: -2%;
+}
+
+.nav-bar-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+}
+.search-section-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10%;
+  margin-top: 3%;
+}
+.services-description{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+.services-title{
+font-size: 20px;
+color: #737793;
+margin-bottom: 15px;
+}
+.request-button-container{
+  display: flex;
+  flex-direction: column;
+}
+.search-section-title {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+  font-weight: bold;
+  font-size: 42px;
+  color: #3660fb;
+}
+.search-section-main {
+  display: flex;
+  flex-direction: column;
+}
+.search-main-section-title {
+  margin-bottom: 20px;
+  color: #737793;
+  font-size: 23px;
+}
+.input-field-container {
+  display: flex;
+  flex-direction: column;
+}
+.stats-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.stats-left-section {
+  display: flex;
+  flex-direction: column;
+  margin-left: 3%;
+}
+.stats-left-section-title {
+  font-size: 50px;
+  color: #333a66;
+  font-weight: bold;
+}
+.stats-left-section-sub-title {
+  font-size: 16px;
+  color: #737793;
+  font-weight: bold;
+}
+
+.stats-right-section {
+  width: 333px;
+  height: 133px;
+  background: #e6ecfe;
+  border-radius: 0px 0px 60px 0px;
+  margin-top: 0.4%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.stats-right-section-title{
+    font-size: 22px;
+    color: #737793;
+}
+.stats-right-section-info{
+    font-size: 25px;
+    color: #3660FB
+}
+.testimonials-section-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 15px; 
+}
+.testimonials-section{
+display: flex;
+flex-direction: column;
+width: 700px;
+
+}
+.testimonial-section-usernames{
+  margin-top: 20px;
+  color: #333A66;
+}
+.testimonial-user-img{
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  border: #737793 solid 1px;
+}
+.testimonial-upper-section{
+  display: flex;
+  flex-direction: row;
+}
+.testimonial-img-container{
+  height: 120px;
+  width: 120px;
+  margin-top: -25px;
+  margin-left: -5px;
+}
+.testimonials-section{
+  background-color: #e6ecfe;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  margin-left: 10px;
+  
+}
+.testimonial-message{
+  font-size: 15px;
+  text-align: inherit;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #737793;
+  line-height: 25px;
+
+}
+
+.footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 14px;
+  width:100%;
+  height:350px;
+  background-color: #3A67FB;
+}
+.footer-logo{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #E6ECFE;
+  width: 386px;
+  height: 61px;
+  border-radius: 250px;
+  margin-top: 20px;
+  text-align: center;
+  color: #3A67FB;
+  font-weight: bold;
+}
+.footer-nav-links{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+.nav-links-title{
+  font-size: 25px;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.footer-links{
+  text-decoration: none;
+  list-style-type: none;
+  margin-left: -25%;
+}
+ul li{
+  margin-bottom: 13px;
+  font-size:17px;
+}
+.footer-contact{
+  display: flex;
+  flex-direction: column;
+  color: white;
+  margin-top: 20px;
+}
+.footer-contact div{
+  margin-bottom: 20px;
+}
+.footer-contact div:nth-child(1){
+  font-weight: bold;
+  font-size: 25px;
+  margin-bottom: 20px;
+
+}
+.staff-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 20px auto 20px auto;
+  border-style:  outset ;
+}
+.staff-img-container{
+  height: 120px;
+  width: 120px;
+  margin-top: -25px;
+  margin-left: -5px;
+}
+
+.staff-user-img{
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  border: #737793 solid 1px;
+  margin: -10px 0px 20px 90px;
+}
+.staff-home-txt-container{
+  margin-left: 10%;
+  color: #737793;
+  font-weight: bold;
+
+}
+.staff-home-name{
+  margin-bottom: 10px;
+}
