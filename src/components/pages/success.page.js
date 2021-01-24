@@ -17,7 +17,7 @@ class BookingSuccess extends Component {
           <div className="booking-success-page-message">
             Your request with Health patient initiative was submitted
             <Box m={1} /> successfully one of our team is going to contact you.
-            soon
+            soon, please check your email for further steps.
           </div>
           <Box m={2} />
           <div className="booking-success-page-message">

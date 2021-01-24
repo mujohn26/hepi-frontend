@@ -14,7 +14,6 @@ export const staffRegistrationRequest = (firstName,lastName,email,tel,nationalit
       `https://hepi-backend-staging.herokuapp.com/api/staff/auth/signup`,{firstName,lastName,email,tel,nationality,educationLevel,licence,locProvince,locDistrict,locSector,bio,services,photo}
 	);
 	// dispatch({ type: "LOADING", payload: false });
-console.log('=-=-=-=-=-=-=-=', photo);
     dispatch(staffRegistrationSuccess(response.data.message));
   } catch (error) {
 	dispatch({ type: "LOADING", payload: false });
@@ -53,9 +52,9 @@ export function staffRegistrationSuccess(data) {
     payload: data,
   };
 }
-export function staffRegistrationFailure(data) {
+export function staffRegistrationFailure(errorMessage) {
   return {
     type: STAFF_REGISTER_FAILED,
-    payload: data,
+    payload: errorMessage,
   };
 }

@@ -22,6 +22,7 @@
     margin-left: 35%;
 }
 
+
 .chip-container{
     width:430px;
 }
@@ -39,7 +40,29 @@
     flex-direction: row;
 }
 
+
 .agent-login-link:hover{
     font-style: normal;
     color: "#737793";
 }
+.error-message1{
+    color:red;
+    font-weight: bold; 
+ 
+
+  }
+@media (max-width: 768px) {
+    .staff-registration-form{
+        margin-left: 5%;
+        margin-top: 20%;
+    }
+    .address-container{
+        display: flex;
+        flex-direction: column;
+    }
+    .address-container div{
+      margin-bottom: 5px;
+    }
+    
+    
+  }

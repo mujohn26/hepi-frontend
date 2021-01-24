@@ -11,8 +11,6 @@ import { createBrowserHistory } from "history";
 import Snackbar from "@material-ui/core/Snackbar";
 import Alert from "@material-ui/lab/Alert";
 import {
-  getImageSuccess,
-  getImageError,
   signIn, 
   loginSuccess,
   loginFailure
@@ -110,6 +108,10 @@ class LoginAdminDashboard extends Component {
                 className={classes.inputField}
                 onChange={this.handleChange.bind(this)}
               ></TextField>
+            {this.props.errorMessage&&this.props.errorMessage?( <div className="error-message">
+                {this.props.errorMessage}
+              </div>):""}
+             
               <Box m={4} />
               <Button
                 className={classes.Button}
@@ -125,6 +127,7 @@ class LoginAdminDashboard extends Component {
   }
 }
 export const mapStateToProps = state => {
+  console.log('=-=-=-=-=-=->>>',state.loginReducer.errorMessage)
   return {
     image: state.loginReducer.image,
     imageError: state.loginReducer.imageError,
@@ -134,8 +137,6 @@ export const mapStateToProps = state => {
 };
 
 const connectedLoginAdminDashboard = connect(mapStateToProps, {
-  getImageSuccess,
-  getImageError,
   signIn,
   loginSuccess,
   loginFailure

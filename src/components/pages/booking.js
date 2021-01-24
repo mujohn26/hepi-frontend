@@ -14,6 +14,21 @@ import Checkbox from "@material-ui/core/Checkbox";
 import Button from "@material-ui/core/Button";
 import AddressHelper from "../../helpers/address.helper";
 import DateFnsUtils from "@date-io/date-fns";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/icons/Menu";
+import Drawer from "@material-ui/core/Drawer";
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import Divider from "@material-ui/core/Divider";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import HomeIcon from "@material-ui/icons/Home";
+import { Link } from "react-router-dom";
+import LocalHospitalIcon from "@material-ui/icons/LocalHospital";
+import ListAltIcon from "@material-ui/icons/ListAlt";
+import PeopleOutlineIcon from "@material-ui/icons/PeopleOutline";
 import {
   MuiPickersUtilsProvider,
   KeyboardTimePicker,
@@ -53,10 +68,35 @@ class Booking extends Component {
       days: "",
       paymentMethod: "",
       agentCode:"",
-      selectedDate: new Date("2020-10-31"),
+      selectedDate: new Date("2021-01-31"),
+      hideNav: true,
+      isOpenDrawer: false,
     };
   }
+  handleDrawerOpen() {
+    this.setState({
+      isOpenDrawer: true,
+    });
+  }
+
+  handleDrawerClose() {
+    this.setState({
+      isOpenDrawer: false,
+    });
+  }
+  resize() {
+    let currentHideNav = window.innerWidth <= 768;
+    if (currentHideNav !== this.state.hideNav) {
+      this.setState({ hideNav: currentHideNav });
+    }
+  }
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.resize.bind(this));
+  }
+
   componentDidMount() {  
+    window.addEventListener("resize", this.resize.bind(this));
+    this.resize();
     const params = queryString.parse(window.location.search);
     this.setState({
       agentCode:params.agentCode
@@ -135,10 +175,153 @@ class Booking extends Component {
 
     return (
       <div className="booking-page">
-        <div>
-          <Navbar />
+    <div>
+          {this.state.hideNav?(
+            <div>
+               <div>
+          <AppBar
+            position="fixed"
+
+          >
+            <Toolbar>
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                onClick={this.handleDrawerOpen.bind(this)}
+                edge="start"
+              >
+                <MenuIcon />
+              </IconButton>
+            <div style={{marginLeft:"15%"}}>
+            Book one of our specialist
+            </div>
+            </Toolbar>
+          </AppBar>
         </div>
-        <div className="booking-page-title">Book one of our specialist</div>
+        <div>
+          <Drawer
+            className={classes.drawer}
+            variant="persistent"
+            anchor="left"
+            open={this.state.isOpenDrawer}
+
+          >
+            <div className={classes.drawerHeader}>
+              <IconButton onClick={this.handleDrawerClose.bind(this)}>
+                <ChevronLeftIcon />
+              </IconButton>
+            </div>
+            <Divider />
+            <List>
+              <ListItem>
+                <ListItemIcon>
+                  {" "}
+                  <HomeIcon style={{ height: "20px", width: "20px" }} />
+                </ListItemIcon>
+                <Link
+                  to="/"
+                  style={{ color: "#737793", textDecoration: "none" }}
+                >
+                  Home
+                </Link>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  {" "}
+                  <LocalHospitalIcon
+                    style={{ height: "20px", width: "20px" }}
+                  />
+                </ListItemIcon>
+
+                <Link
+                  to="/booking"
+                  style={{ color: "#737793", textDecoration: "none" }}
+                >
+                  Booking
+                </Link>
+              </ListItem>
+
+              <ListItem>
+                <ListItemIcon>
+                  {" "}
+                  <ListAltIcon style={{ height: "20px", width: "20px" }} />
+                </ListItemIcon>
+
+                <Link
+                  to="/service"
+                  style={{ color: "#737793", textDecoration: "none" }}
+                >
+                  Our services
+                </Link>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  {" "}
+                  <PeopleOutlineIcon
+                    style={{ height: "20px", width: "20px" }}
+                  />
+                </ListItemIcon>
+
+                <Link
+                  to="/join-staff"
+                  style={{ color: "#737793", textDecoration: "none" }}
+                >
+                  Join our staff
+                </Link>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  {" "}
+                  <PeopleOutlineIcon
+                    style={{ height: "20px", width: "20px" }}
+                  />
+                </ListItemIcon>
+
+                <Link
+                  to="/agent"
+                  style={{ color: "#737793", textDecoration: "none" }}
+                >
+                  Be our agent
+                </Link>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  {" "}
+                  <LocalHospitalIcon
+                    style={{ height: "20px", width: "20px" }}
+                  />
+                </ListItemIcon>
+
+                <Link
+                  to="/mperekeza"
+                  style={{ color: "#737793", textDecoration: "none" }}
+                >
+                  Mperekeza
+                </Link>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  {" "}
+                  <LocalHospitalIcon
+                    style={{ height: "20px", width: "20px" }}
+                  />
+                </ListItemIcon>
+                <Link
+                  to="/advisory-counseling"
+                  style={{ color: "#737793", textDecoration: "none" }}
+                >
+                  Counselling
+                </Link>
+              </ListItem>
+              {/* </li> */}
+            </List>
+          </Drawer>
+        </div>
+            </div>
+
+          ):(<Navbar />)}
+        </div>
+        {this.state.hideNav?"":<div className="service-page-title">Book one of our specialist</div>} 
         <div>
           <form className="staff-registration-form">
             <TextField
@@ -236,7 +419,7 @@ class Booking extends Component {
                   id="combo-box-demo"
                   options={this.state.sectors}
                   getOptionLabel={(option) => option.sectorName}
-                  style={{ width: 300 }}
+                  // style={{ width: 300 }}
                   onChange={(e, value) => {
                     this.setState({
                       sector: value.sectorName,
@@ -264,7 +447,7 @@ class Booking extends Component {
                   service: value.serviceName,
                 });
               }}
-              style={{ width: 300 }}
+              // style={{ width: 300 }}
               renderInput={(params) => (
                 <TextField
                   {...params}
@@ -285,7 +468,7 @@ class Booking extends Component {
                     duration: value.durationName,
                   });
                 }}
-                style={{ width: 300 }}
+                // style={{ width: 300 }}
                 renderInput={(params) => (
                   <TextField
                     {...params}
@@ -331,7 +514,7 @@ class Booking extends Component {
               id="combo-box-demo"
               options={paymentMode}
               getOptionLabel={(option) => option.paymentName}
-              style={{ width: 300 }}
+              // style={{ width: 300 }}
               onChange={(e, value) => {
                 this.setState({
                   paymentMethod: value.paymentName,
@@ -375,9 +558,38 @@ class Booking extends Component {
             </Button>
           </form>
         </div>
-        <div>
+        {this.state.hideNav?(
+            <div
+            style={{
+              height: "80px",
+              width: "100%",
+              backgroundColor: "blue",
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-evenly",
+              color: "white",
+              marginTop:"5%"
+
+            }}
+          >
+            <div style={{ marginTop: "3%" }}>
+              <div style={{ fontWeight: "bold", marginBottom: "5%" }}>
+                Location:
+              </div>
+              <div style={{ fontSize: "12px" }}>Kigali-Rwanda</div>
+            </div>
+            <div style={{ marginTop: "3%" }}>
+              <div style={{ fontWeight: "bold", marginBottom: "5%" }}>
+                Contact us
+              </div>
+              <div style={{ fontSize: "12px" }}>Tel:+250783036687</div>
+            </div>
+          </div>
+        ):(
+          <>
           <Footer />
-        </div>
+        </>
+        )}
       </div>
     );
   }

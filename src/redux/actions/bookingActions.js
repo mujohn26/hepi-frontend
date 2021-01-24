@@ -44,6 +44,7 @@ export const bookingRequest = (
     );
     dispatch(bookingRequestSuccess(response.data.message));
   } catch (error) {
+
     const errorMessage = error.response.data.message;
     dispatch(bookingRequestFailure(errorMessage));
   }

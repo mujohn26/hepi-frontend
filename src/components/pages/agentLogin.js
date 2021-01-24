@@ -108,6 +108,9 @@ class LoginAgentDashboard extends Component {
                 className={classes.inputField}
                 onChange={this.handleChange.bind(this)}
               ></TextField>
+              {this.props.errorMessage&&this.props.errorMessage?( <div className="error-message">
+                {this.props.errorMessage}
+              </div>):""}
               <Box m={4} />
               <Button
                 className={classes.Button}

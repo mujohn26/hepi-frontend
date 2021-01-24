@@ -43,6 +43,7 @@ export const agentRegister = (
     );
     dispatch(agentCreatedSuccess(response.data.message));
   } catch (error) {
+   
 
     const errorMessage = error.response.data.message;
     dispatch(agentCreatedFailure(errorMessage));
@@ -264,10 +265,10 @@ export function agentCreatedSuccess(data) {
     payload: data,
   };
 }
-export function agentCreatedFailure(data) {
+export function agentCreatedFailure(errorMessage) {
   return {
     type: AGENT_CREATE_FAILED,
-    payload: data,
+    payload: errorMessage,
   };
 }
 

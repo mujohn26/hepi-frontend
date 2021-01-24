@@ -33,6 +33,7 @@ import {
   getStaffSuccess,
   getStaffFailure,
 } from "../../redux/actions/homeActions";
+import HomeMobileView from './homeMobile';
 import { createBrowserHistory } from "history";
 export const history = createBrowserHistory({
   forceRefresh: true,
@@ -45,9 +46,30 @@ class Home extends Component {
       activeStep: 0,
       navBackground: "",
       activeItemIndex: 0,
+      hideNav: true,
     };
   }
+
+  resize() {
+    let currentHideNav = window.innerWidth <= 768;
+    if (currentHideNav !== this.state.hideNav) {
+      this.setState({ hideNav: currentHideNav });
+    }
+  }
+  handleClickCourse = (id) => {
+    this.setState({
+      courseId: id,
+    });
+  };
+  isSelected = (id) => {
+    return id == this.state.courseId;
+  };
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.resize.bind(this));
+  }
   componentDidMount() {
+    window.addEventListener("resize", this.resize.bind(this));
+    this.resize();
     const { getTestimonials, getStaffs } = this.props;
     getTestimonials();
     getStaffs();
@@ -59,6 +81,9 @@ class Home extends Component {
     const { classes } = this.props;
     return (
       <div className="home-container">
+        {this.state.hideNav?(<div><HomeMobileView/></div>):
+        (
+          <div>
         <div className="upper-container">
           <div>
             <Navbar />
@@ -274,6 +299,9 @@ class Home extends Component {
         <div>
           <Footer />
         </div>
+        </div>
+
+          )}
       </div>
     );
   }

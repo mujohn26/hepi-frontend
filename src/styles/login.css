@@ -44,3 +44,9 @@
   .formHolder h4 {
     margin-top: 15%;
   }
+  .error-message{
+    color:red;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 4%;
+  }

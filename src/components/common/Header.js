@@ -50,7 +50,7 @@ render(){
               <Link to='/mperekeza' style={{ color:'#737793'}}>Mperekeza</Link>
             </li>
             <li>
-              <Link to='/advisory-counseling' style={{ color:'#737793'}}>Talk to doctor and counselling online</Link>
+              <Link to='/advisory-counseling' style={{ color:'#737793'}}>Counselling</Link>
             </li>
           </ul>
         </div>
@@ -75,7 +75,7 @@ render(){
               <Link to='/join'>Join our staff</Link>
             </li>
             <li>
-              <Link to='/advisory-counseling' style={{ color:'#737793'}}>Talk to doctor and counselling online</Link>
+              <Link to='/advisory-counseling' style={{ color:'#737793'}}>Counselling</Link>
             </li>
             <li>
               <Link to='/agent'>Be our agent</Link>

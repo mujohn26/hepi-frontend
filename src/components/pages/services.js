@@ -19,16 +19,206 @@ import familyIcon from "../../assets/images/family.png";
 import psychologistIcon from "../../assets/images/psychologist.png";
 import advisoryIcon from "../../assets/images/advisor.png";
 import orientationIcon from "../../assets/images/orientation.png";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/icons/Menu";
+import Drawer from "@material-ui/core/Drawer";
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import Divider from "@material-ui/core/Divider";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import HomeIcon from "@material-ui/icons/Home";
+import { Link } from "react-router-dom";
+import LocalHospitalIcon from "@material-ui/icons/LocalHospital";
+import ListAltIcon from "@material-ui/icons/ListAlt";
+import PeopleOutlineIcon from "@material-ui/icons/PeopleOutline";
 class Service extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hideNav: true,
+      isOpenDrawer: false,
+    };
+  }
+  handleDrawerOpen() {
+    this.setState({
+      isOpenDrawer: true,
+    });
+  }
+
+  handleDrawerClose() {
+    this.setState({
+      isOpenDrawer: false,
+    });
+  }
+  resize() {
+    let currentHideNav = window.innerWidth <= 768;
+    if (currentHideNav !== this.state.hideNav) {
+      this.setState({ hideNav: currentHideNav });
+    }
+  }
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.resize.bind(this));
+  }
+  componentDidMount() {
+    window.addEventListener("resize", this.resize.bind(this));
+    this.resize();
+
+  }
   render() {
     const { classes } = this.props;
 
     return (
       <div className="service-page">
-        <div>
-          <Navbar />
+       <div>
+          {this.state.hideNav?(
+            <div>
+               <div>
+          <AppBar
+            position="fixed"
+
+          >
+            <Toolbar>
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                onClick={this.handleDrawerOpen.bind(this)}
+                edge="start"
+              >
+                <MenuIcon />
+              </IconButton>
+            <div style={{marginLeft:"15%"}}>
+              Our services
+            </div>
+            </Toolbar>
+          </AppBar>
         </div>
-        <div className="service-page-title">Our services</div>
+        <div>
+          <Drawer
+            className={classes.drawer}
+            variant="persistent"
+            anchor="left"
+            open={this.state.isOpenDrawer}
+
+          >
+            <div className={classes.drawerHeader}>
+              <IconButton onClick={this.handleDrawerClose.bind(this)}>
+                <ChevronLeftIcon />
+              </IconButton>
+            </div>
+            <Divider />
+            <List>
+              <ListItem>
+                <ListItemIcon>
+                  {" "}
+                  <HomeIcon style={{ height: "20px", width: "20px" }} />
+                </ListItemIcon>
+                <Link
+                  to="/"
+                  style={{ color: "#737793", textDecoration: "none" }}
+                >
+                  Home
+                </Link>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  {" "}
+                  <LocalHospitalIcon
+                    style={{ height: "20px", width: "20px" }}
+                  />
+                </ListItemIcon>
+
+                <Link
+                  to="/booking"
+                  style={{ color: "#737793", textDecoration: "none" }}
+                >
+                  Booking
+                </Link>
+              </ListItem>
+
+              <ListItem>
+                <ListItemIcon>
+                  {" "}
+                  <ListAltIcon style={{ height: "20px", width: "20px" }} />
+                </ListItemIcon>
+
+                <Link
+                  to="/service"
+                  style={{ color: "#737793", textDecoration: "none" }}
+                >
+                  Our services
+                </Link>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  {" "}
+                  <PeopleOutlineIcon
+                    style={{ height: "20px", width: "20px" }}
+                  />
+                </ListItemIcon>
+
+                <Link
+                  to="/join-staff"
+                  style={{ color: "#737793", textDecoration: "none" }}
+                >
+                  Join our staff
+                </Link>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  {" "}
+                  <PeopleOutlineIcon
+                    style={{ height: "20px", width: "20px" }}
+                  />
+                </ListItemIcon>
+
+                <Link
+                  to="/agent"
+                  style={{ color: "#737793", textDecoration: "none" }}
+                >
+                  Be our agent
+                </Link>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  {" "}
+                  <LocalHospitalIcon
+                    style={{ height: "20px", width: "20px" }}
+                  />
+                </ListItemIcon>
+
+                <Link
+                  to="/mperekeza"
+                  style={{ color: "#737793", textDecoration: "none" }}
+                >
+                  Mperekeza
+                </Link>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  {" "}
+                  <LocalHospitalIcon
+                    style={{ height: "20px", width: "20px" }}
+                  />
+                </ListItemIcon>
+                <Link
+                  to="/advisory-counseling"
+                  style={{ color: "#737793", textDecoration: "none" }}
+                >
+                  Counselling
+                </Link>
+              </ListItem>
+              {/* </li> */}
+            </List>
+          </Drawer>
+        </div>
+            </div>
+
+          ):(<Navbar />)}
+        </div>
+        {this.state.hideNav?"":<div className="service-page-title">Our services</div>} 
         <div class={classes.serviceContainer}>
           <Accordion className={classes.Accordion}>
             <AccordionSummary
@@ -720,9 +910,37 @@ class Service extends Component {
             </AccordionDetails>
           </Accordion>
         </div>
-        <div>
+        {this.state.hideNav?(
+            <div
+            style={{
+              height: "80px",
+              width: "100%",
+              backgroundColor: "blue",
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-evenly",
+              color: "white",
+              marginTop:"5%"
+            }}
+          >
+            <div style={{ marginTop: "3%" }}>
+              <div style={{ fontWeight: "bold", marginBottom: "5%" }}>
+                Location:
+              </div>
+              <div style={{ fontSize: "12px" }}>Kigali-Rwanda</div>
+            </div>
+            <div style={{ marginTop: "3%" }}>
+              <div style={{ fontWeight: "bold", marginBottom: "5%" }}>
+                Contact us
+              </div>
+              <div style={{ fontSize: "12px" }}>Tel:+250783036687</div>
+            </div>
+          </div>
+        ):(
+          <>
           <Footer />
-        </div>
+        </>
+        )}
       </div>
     );
   }

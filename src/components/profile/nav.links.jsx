@@ -155,7 +155,7 @@ export class NavLinks extends Component {
             </Link>
           </ListItemText>
         </ListItem>
-        {this.state.role === "superadmin" ? (
+        {this.state.role === "superAdmin" ? (
           <ListItem
             id="profile"
             selected={this.isActive("/dashboard/add-admin")}

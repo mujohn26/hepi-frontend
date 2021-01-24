@@ -5,7 +5,11 @@ export const Styles = theme => ({
         
     },
     Button:{
-        height:"50px"
+        height:"50px",
+        ['@media (max-width:780px)']: {
+          width: '100px',
+          height:"30px"
+        },
     },
     StaffButton:{
       height:"30px",
@@ -19,6 +23,7 @@ export const Styles = theme => ({
       button: {
         marginTop: theme.spacing(1),
         marginRight: theme.spacing(1),
+ 
       },
       actionsContainer: {
         marginBottom: theme.spacing(2),
@@ -26,5 +31,9 @@ export const Styles = theme => ({
       resetContainer: {
         padding: theme.spacing(3),
       },
+      drawer:{
+        width:"540",
+        backgroundColor:"red"
+      }
 
 });

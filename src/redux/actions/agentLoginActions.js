@@ -17,7 +17,7 @@ export const signIn = (email, password) => async (dispatch) => {
     // dispatch({ type: 'LOADING', payload: false });
     dispatch(loginSuccess(response.data.message));
   } catch (error) {
-    const errorMessage = error.response.data.message;
+    const errorMessage = error.response.data.error;
     dispatch(loginFailure(errorMessage));
     // dispatch({ type: 'LOADING', payload: false });
   }
@@ -29,9 +29,9 @@ export function loginSuccess(data) {
     payload: data,
   };
 }
-export function loginFailure(data) {
+export function loginFailure(errorMessage) {
   return {
     type: LOGIN_ERROR,
-    errorMessage: data,
+    errorMessage: errorMessage,
   };
 }
