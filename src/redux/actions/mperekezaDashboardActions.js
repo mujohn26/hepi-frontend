@@ -15,7 +15,7 @@ export const getAllRequest = () => async (dispatch) => {
       token: `Bearer ${token}`,
     };
 
-    const response = await axios.get(`http://localhost:8080/api/mperekeza`, {
+    const response = await axios.get(`https://hepi-backend-staging.herokuapp.com/api/mperekeza`, {
       headers,
     });
     dispatch(getAllRequestSuccess(response.data.data));
@@ -35,7 +35,7 @@ export const getAllByStatus = (status) => async (dispatch) => {
     };
 
     const response = await axios.get(
-      `http://localhost:8080/api/requests/${status}`,
+      `https://hepi-backend-staging.herokuapp.com/api/requests/${status}`,
       { headers }
     );
     dispatch(getAllRequestSuccess(response.data.data));
@@ -56,7 +56,7 @@ export const acceptRequest = (subscriptionId) => async (dispatch) => {
     const body = { status: "status" };
 
     const response = await axios.patch(
-      `http://localhost:8080/api/mperekeza/accept/${subscriptionId}`,
+      `https://hepi-backend-staging.herokuapp.com/api/mperekeza/accept/${subscriptionId}`,
       { body },
       { headers }
     );
@@ -78,7 +78,7 @@ export const finishRequest = (subscriptionId) => async (dispatch) => {
     const body = { status: "status" };
 
     const response = await axios.patch(
-      `http://localhost:8080/api/mperekeza/terminate/${subscriptionId}`,
+      `https://hepi-backend-staging.herokuapp.com/api/mperekeza/terminate/${subscriptionId}`,
       { body },
       { headers }
     );

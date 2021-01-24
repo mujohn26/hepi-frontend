@@ -24,7 +24,7 @@ export const bookingRequest = (
   dispatch({ type: "LOADING", payload: true });
   try {
     const response = await axios.post(
-      `http://localhost:8080/api/booking/request`,
+      `https://hepi-backend-staging.herokuapp.com/api/booking/request`,
       {
         firstName,
         lastName,
@@ -55,7 +55,7 @@ export const getServices = () => async (dispatch) => {
     const headers = {
       "Content-Type": "application/json",
     };
-    const response = await axios.get(`http://localhost:8080/api/pricing`, {
+    const response = await axios.get(`https://hepi-backend-staging.herokuapp.com/api/pricing`, {
       headers,
     });
     dispatch(getServicesPricingSuccess(response.data.data));

@@ -16,7 +16,7 @@ export const getAllServices = () => async (dispatch) => {
       token: `Bearer ${token}`,
     };
 
-    const response = await axios.get(`http://localhost:8080/api/pricing`, {
+    const response = await axios.get(`https://hepi-backend-staging.herokuapp.com/api/pricing`, {
       headers,
     });
     dispatch(getAllServicesSuccess(response.data.data));
@@ -38,7 +38,7 @@ export const createService = (
       token: `Bearer ${token}`,
     };
     const response = await axios.post(
-      `http://localhost:8080/api/pricing`,
+      `https://hepi-backend-staging.herokuapp.com/api/pricing`,
       {
         serviceName, price 
       },

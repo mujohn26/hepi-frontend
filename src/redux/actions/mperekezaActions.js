@@ -22,7 +22,7 @@ export const bookingRequest = (
   dispatch({ type: "LOADING", payload: true });
   try {
     const response = await axios.post(
-      `http://localhost:8080/api/mperekeza`,
+      `https://hepi-backend-staging.herokuapp.com/api/mperekeza`,
       {
         firstName,
         lastName,

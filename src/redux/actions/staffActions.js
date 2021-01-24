@@ -11,7 +11,7 @@ export const staffRegistrationRequest = (firstName,lastName,email,tel,nationalit
 //   dispatch({ type: "LOADING", payload: true }); 
   try {
     const response = await axios.post(
-      `http://localhost:8080/api/staff/auth/signup`,{firstName,lastName,email,tel,nationality,educationLevel,licence,locProvince,locDistrict,locSector,bio,services,photo}
+      `https://hepi-backend-staging.herokuapp.com/api/staff/auth/signup`,{firstName,lastName,email,tel,nationality,educationLevel,licence,locProvince,locDistrict,locSector,bio,services,photo}
 	);
 	// dispatch({ type: "LOADING", payload: false });
 console.log('=-=-=-=-=-=-=-=', photo);

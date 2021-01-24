@@ -15,7 +15,7 @@ export const getAllTestimonials = () => async (dispatch) => {
       token: `Bearer ${token}`,
     };
 
-    const response = await axios.get(`http://localhost:8080/api/testimonial/display`, {
+    const response = await axios.get(`https://hepi-backend-staging.herokuapp.com/api/testimonial/display`, {
       headers,
     });
     dispatch(getAllRequestSuccess(response.data.data));
@@ -35,7 +35,7 @@ export const acceptRequest = (id,displayType) => async (dispatch) => {
       token: `Bearer ${token}`,
     };
     const response = await axios.patch(
-      `http://localhost:8080/api/testimonial/display/${id}`,
+      `https://hepi-backend-staging.herokuapp.com/api/testimonial/display/${id}`,
       { displayType },
       { headers }
     );

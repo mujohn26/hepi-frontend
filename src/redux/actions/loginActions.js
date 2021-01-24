@@ -8,7 +8,7 @@ export const signIn = (email, password) => async (dispatch) => {
   dispatch({ type: "LOADING", payload: true });
   try {
     const response = await axios.post(
-      `http://localhost:8080/api/auth/signin`,
+      `https://hepi-backend-staging.herokuapp.com/api/auth/signin`,
       {
         email: email,
         password: password,

@@ -10,7 +10,7 @@ export const getStaffs = () => async (dispatch) => {
     const headers = {
       "Content-Type": "application/json",
     };
-    const response = await axios.get(`http://localhost:8080/api/staff-web`,{
+    const response = await axios.get(`https://hepi-backend-staging.herokuapp.com/api/staff-web`,{
       headers,
     });
     dispatch(getStaffSuccess(response.data.data));

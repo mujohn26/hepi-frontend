@@ -13,7 +13,7 @@ export const addTestimonials = (
   dispatch({ type: "LOADING", payload: true });
   try{
     const response = await axios.post(
-      `http://localhost:8080/api/testimonial`,
+      `https://hepi-backend-staging.herokuapp.com/api/testimonial`,
       {
         name,
         email,
@@ -33,7 +33,7 @@ export const getTestimonials = () => async (dispatch) => {
     const headers = {
       "Content-Type": "application/json",
     };
-    const response = await axios.get(`http://localhost:8080/api/testimonial/web`,{
+    const response = await axios.get(`https://hepi-backend-staging.herokuapp.com/api/testimonial/web`,{
       headers,
     });
     dispatch(getTestimonialSuccess(response.data.data));

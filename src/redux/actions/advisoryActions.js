@@ -25,7 +25,7 @@ export const advisoryRequest = (
 ) => async (dispatch) => {
   dispatch({ type: "LOADING", payload: true });
   try {
-    const response = await axios.post(`http://localhost:8080/api/adversory`, {
+    const response = await axios.post(`https://hepi-backend-staging.herokuapp.com/api/adversory`, {
       firstName,
       lastName,
       email,
@@ -58,7 +58,7 @@ export const counselingRequest = (
 ) => async (dispatch) => {
   dispatch({ type: "LOADING", payload: true });
   try {
-    const response = await axios.post(`http://localhost:8080/api/counseling`, {
+    const response = await axios.post(`https://hepi-backend-staging.herokuapp.com/api/counseling`, {
       firstName,
       lastName,
       email,
@@ -86,7 +86,7 @@ export const getAllCounselings = () => async (dispatch) => {
       token: `Bearer ${token}`,
     };
 
-    const response = await axios.get(`http://localhost:8080/api/adversory`, {
+    const response = await axios.get(`https://hepi-backend-staging.herokuapp.com/api/adversory`, {
       headers,
     });
     dispatch(getAllSuccess(response.data.data));
@@ -105,7 +105,7 @@ export const getAllAdversaries = () => async (dispatch) => {
       token: `Bearer ${token}`,
     };
 
-    const response = await axios.get(`http://localhost:8080/api/counseling`, {
+    const response = await axios.get(`https://hepi-backend-staging.herokuapp.com/api/counseling`, {
       headers,
     });
     dispatch(getAllSuccess(response.data.data));

@@ -15,7 +15,7 @@ export const getAllStaff = () => async (dispatch) => {
       token: `Bearer ${token}`,
     };
 
-    const response = await axios.get(`http://localhost:8080/api/staff`, {
+    const response = await axios.get(`https://hepi-backend-staging.herokuapp.com/api/staff`, {
       headers,
     });
     dispatch(getAllStaffSuccess(response.data.data));
@@ -35,7 +35,7 @@ export const getAllByStatus = (status) => async (dispatch) => {
     };
 
     const response = await axios.get(
-      `http://localhost:8080/api/staffs/${status}`,
+      `https://hepi-backend-staging.herokuapp.com/api/staffs/${status}`,
       { headers }
     );
     dispatch(getAllStaffSuccess(response.data.data));
@@ -56,7 +56,7 @@ export const activateAccount = (staffId) => async (dispatch) => {
     const body = { status: "status" };
 
     const response = await axios.patch(
-      `http://localhost:8080/api/staff/activate-account/${staffId}`,
+      `https://hepi-backend-staging.herokuapp.com/api/staff/activate-account/${staffId}`,
       { body },
       { headers }
     );
@@ -78,7 +78,7 @@ export const deactivateStaff = (staffId) => async (dispatch) => {
     const body = { status: "status" };
 
     const response = await axios.patch(
-      `http://localhost:8080/api/staff/deactivate-account/${staffId}`,
+      `https://hepi-backend-staging.herokuapp.com/api/staff/deactivate-account/${staffId}`,
       { body },
       { headers }
     );

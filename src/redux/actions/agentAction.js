@@ -27,7 +27,7 @@ export const agentRegister = (
   dispatch({ type: "LOADING", payload: true });
   try {
     const response = await axios.post(
-      `http://localhost:8080/api/agent/auth/signup`,
+      `https://hepi-backend-staging.herokuapp.com/api/agent/auth/signup`,
       {
         firstName,
         lastName,
@@ -58,7 +58,7 @@ export const getAllAgents = () => async (dispatch) => {
       token: `Bearer ${token}`,
     };
 
-    const response = await axios.get(`http://localhost:8080/api/agent`, {
+    const response = await axios.get(`https://hepi-backend-staging.herokuapp.com/api/agent`, {
       headers,
     });
     dispatch(getAllAgentsSuccess(response.data.data));
@@ -78,7 +78,7 @@ export const activateAccount = (agentId) => async (dispatch) => {
     };
     const body = { status: "status" };
     const response = await axios.patch(
-      `http://localhost:8080/api/agent/activate-account/${agentId}`,
+      `https://hepi-backend-staging.herokuapp.com/api/agent/activate-account/${agentId}`,
       { body },
       { headers }
     );
@@ -99,7 +99,7 @@ export const deactivateAgent = (agentId) => async (dispatch) => {
     };
     const body = { status: "status" };
     const response = await axios.patch(
-      `http://localhost:8080/api/agent/deactivate-account/${agentId}`,
+      `https://hepi-backend-staging.herokuapp.com/api/agent/deactivate-account/${agentId}`,
       { body },
       { headers }
     );
@@ -119,7 +119,7 @@ export const getAgentCashHistory = () => async (dispatch) => {
       "Content-Type": "application/json",
       token: `Bearer ${token}`,
     };
-    const response = await axios.get(`http://localhost:8080/api/balance/agent`, {
+    const response = await axios.get(`https://hepi-backend-staging.herokuapp.com/api/balance/agent`, {
       headers,
     });
     const data={
@@ -142,7 +142,7 @@ export const AdminGetAgentCashHistory = () => async (dispatch) => {
       "Content-Type": "application/json",
       token: `Bearer ${token}`,
     };
-    const response = await axios.get(`http://localhost:8080/api/balance`, {
+    const response = await axios.get(`https://hepi-backend-staging.herokuapp.com/api/balance`, {
       headers,
     });
     const data={
@@ -162,7 +162,7 @@ export const getCashHistoryByStatus = (status) => async (dispatch) => {
       "Content-Type": "application/json",
       token: `Bearer ${token}`,
     };
-    const response = await axios.get(`http://localhost:8080/api/balance?status=${status}`, {
+    const response = await axios.get(`https://hepi-backend-staging.herokuapp.com/api/balance?status=${status}`, {
       headers,
     });
     const data={
@@ -184,7 +184,7 @@ export const changeCashBalanceStatus = (balanceId) => async (dispatch) => {
     };
     const body = { status: "status" };
     const response = await axios.patch(
-      `http://localhost:8080/api/balance/${balanceId}/accept`,
+      `https://hepi-backend-staging.herokuapp.com/api/balance/${balanceId}/accept`,
       { body },
       { headers }
     );
@@ -205,7 +205,7 @@ export const RejectCashBalance = (balanceId) => async (dispatch) => {
     };
     const body = { status: "status" };
     const response = await axios.patch(
-      `http://localhost:8080/api/balance/${balanceId}/agent?status=rejected`,
+      `https://hepi-backend-staging.herokuapp.com/api/balance/${balanceId}/agent?status=rejected`,
       { body },
       { headers }
     );
@@ -226,7 +226,7 @@ export const AdminAcceptCashBalance = (balanceId,status) => async (dispatch) => 
     };
     const body = { status: "status" };
     const response = await axios.patch(
-      `http://localhost:8080/api/balance/${balanceId}/admin?status=${status}`,
+      `https://hepi-backend-staging.herokuapp.com/api/balance/${balanceId}/admin?status=${status}`,
       { body },
       { headers }
     );

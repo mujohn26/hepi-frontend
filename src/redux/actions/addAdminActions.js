@@ -17,7 +17,7 @@ export const getAllAdmins = () => async (dispatch) => {
       token: `Bearer ${token}`,
     };
 
-    const response = await axios.get(`http://localhost:8080/api/admin`, {
+    const response = await axios.get(`https://hepi-backend-staging.herokuapp.com/api/admin`, {
       headers,
     });
     dispatch(getAllAdminsSuccess(response.data.data));
@@ -40,7 +40,7 @@ export const createAdmin = (
     };
     console.log(firstName, lastName);
     const response = await axios.post(
-      `http://localhost:8080/api/admin/auth/signup`,
+      `https://hepi-backend-staging.herokuapp.com/api/admin/auth/signup`,
       {
         firstName, lastName, email, secretPassword, tel
       },
@@ -66,7 +66,7 @@ export const getAllByStatus = (status) => async (dispatch) => {
     };
 
     const response = await axios.get(
-      `http://localhost:8080/api/admin/${status}`,
+      `https://hepi-backend-staging.herokuapp.com/api/admin/${status}`,
       { headers }
     );
     dispatch(getAllAdminsSuccess(response.data.data));
@@ -87,7 +87,7 @@ export const activateAccount = (userId) => async (dispatch) => {
     const body = { status: "status" };
 
     const response = await axios.patch(
-      `http://localhost:8080/api/admin/activate/${userId}`,
+      `https://hepi-backend-staging.herokuapp.com/api/admin/activate/${userId}`,
       { body },
       { headers }
     );
@@ -109,7 +109,7 @@ export const deactivateAdmin = (userId) => async (dispatch) => {
     const body = { status: "status" };
 
     const response = await axios.patch(
-      `http://localhost:8080/api/admin/deactivate/${userId}`,
+      `https://hepi-backend-staging.herokuapp.com/api/admin/deactivate/${userId}`,
       { body },
       { headers }
     );

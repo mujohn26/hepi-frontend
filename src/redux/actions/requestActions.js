@@ -15,7 +15,7 @@ export const getAllRequest = () => async (dispatch) => {
       token: `Bearer ${token}`,
     };
 
-    const response = await axios.get(`http://localhost:8080/api/requests`, {
+    const response = await axios.get(`https://hepi-backend-staging.herokuapp.com/api/requests`, {
       headers,
     });
     dispatch(getAllRequestSuccess(response.data.data));
@@ -35,7 +35,7 @@ export const getAllByStatus = (status) => async (dispatch) => {
     };
 
     const response = await axios.get(
-      `http://localhost:8080/api/requests/${status}`,
+      `https://hepi-backend-staging.herokuapp.com/api/requests/${status}`,
       { headers }
     );
     dispatch(getAllRequestSuccess(response.data.data));
@@ -56,7 +56,7 @@ export const acceptRequest = (requestId) => async (dispatch) => {
     const body = { status: "status" };
 
     const response = await axios.patch(
-      `http://localhost:8080/api/booking/accept-request/${requestId}`,
+      `https://hepi-backend-staging.herokuapp.com/api/booking/accept-request/${requestId}`,
       { body },
       { headers }
     );
@@ -78,7 +78,7 @@ export const finishRequest = (requestId) => async (dispatch) => {
     const body = { status: "status" };
 
     const response = await axios.patch(
-      `http://localhost:8080/api/booking/finish-request/${requestId}`,
+      `https://hepi-backend-staging.herokuapp.com/api/booking/finish-request/${requestId}`,
       { body },
       { headers }
     );
